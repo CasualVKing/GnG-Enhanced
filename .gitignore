@@ -1,0 +1,22 @@
+# User-supplied ROM files (copyrighted — never commit)
+rom/
+*.sfc
+*.smc
+*.srm
+*.sav
+
+# Tools (downloaded by user)
+tools/
+
+# Build artifacts
+*.bps
+*.ips
+
+# OS
+Thumbs.db
+.DS_Store
+
+# IDE
+.vs/
+.vscode/
+*.user
