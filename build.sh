@@ -46,6 +46,18 @@ echo " SUCCESS! Patched ROM: rom/gng_enhanced.sfc"
 echo "============================================"
 echo ""
 
+# Generate BPS patch (optional — requires flips in tools/)
+if [ -f "tools/flips" ] || [ -f "tools/flips.exe" ]; then
+    FLIPS="tools/flips"
+    [ -f "tools/flips.exe" ] && FLIPS="tools/flips.exe"
+    echo "Generating BPS patch..."
+    $FLIPS --create rom/clean.sfc rom/gng_enhanced.sfc rom/gng_enhanced.bps
+    echo "BPS patch: rom/gng_enhanced.bps"
+else
+    echo "Tip: Place flips in tools/ to auto-generate a .bps patch for distribution."
+fi
+echo ""
+
 # Optional: launch emulator
 if [ -n "$GNG_EMULATOR" ]; then
     echo "Launching emulator..."

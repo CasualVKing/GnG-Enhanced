@@ -79,6 +79,20 @@ echo  SUCCESS! Patched ROM: rom\gng_enhanced.sfc
 echo ============================================
 echo.
 
+:: Generate BPS patch (optional — requires flips.exe in tools/)
+if exist "tools\flips.exe" (
+    echo Generating BPS patch...
+    tools\flips.exe --create rom\clean.sfc rom\gng_enhanced.sfc rom\gng_enhanced.bps
+    if errorlevel 1 (
+        echo WARNING: BPS generation failed.
+    ) else (
+        echo BPS patch: rom\gng_enhanced.bps
+    )
+) else (
+    echo Tip: Place flips.exe in tools\ to auto-generate a .bps patch for distribution.
+)
+echo.
+
 :: Optional: launch emulator if configured
 if defined GNG_EMULATOR (
     echo Launching emulator...

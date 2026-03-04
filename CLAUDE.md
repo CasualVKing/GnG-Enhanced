@@ -17,6 +17,7 @@ build.bat
 Requires:
 - `tools/asar.exe` (download from asar releases)
 - `rom/clean.sfc` (user-supplied US ROM)
+- `tools/flips.exe` (optional — download from [Flips releases](https://github.com/Alcaro/Flips/releases) for BPS patch generation)
 
 ## Architecture
 

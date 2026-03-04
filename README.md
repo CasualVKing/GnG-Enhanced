@@ -49,6 +49,14 @@ All parameters are in `config.asm`. Edit values, re-run `build.bat`, and test.
 | `fastrom_enabled` | `1` | Enable FastROM speed boost |
 | `title_text_enabled` | `1` | Show "ENHANCED" on title screen |
 
+## Distribution
+
+To distribute the hack as a BPS patch (no ASM source needed):
+
+1. Download [Floating IPS (flips)](https://github.com/Alcaro/Flips/releases) and place the executable in `tools/`
+2. Run `build.bat` — it will automatically generate `rom/gng_enhanced.bps`
+3. Share the `.bps` file. Users apply it with [flips](https://github.com/Alcaro/Flips/releases) or [RomPatcher.js](https://www.marcrobledo.com/RomPatcher.js/) (browser-based, no install)
+
 ## Legal
 
 This project contains no copyrighted material. You must supply your own legally obtained ROM. The patch files modify game behavior but contain no game assets or code from the original ROM.
