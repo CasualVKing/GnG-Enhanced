@@ -1,5 +1,5 @@
 ; ============================================================
-; GnG Enhanced — Air Control Configuration
+; GnG Enhanced — Configuration
 ; ============================================================
 ; Tweak these values and re-run build.bat to test.
 ;
@@ -24,3 +24,42 @@
 
 ; 1 = apply friction when no direction held, 0 = maintain momentum (ice physics)
 !enable_friction  = 1
+
+; ============================================================
+; Throw Cancel Configuration
+; ============================================================
+; Allow canceling the throw animation with a jump after a delay.
+; Uses weapon_cooldown ($14EC) as the timer — lance sets it to
+; $0C (12) at throw start, decrementing each frame.
+;
+; throw_cancel_cooldown: cancel allowed when weapon_cooldown
+; drops to this value or below. Lower = more delay before cancel.
+;   $0A = ~2 frame delay (very fast cancel)
+;   $08 = ~4 frame delay (default — tight but not instant)
+;   $06 = ~6 frame delay (noticeable commitment)
+;   $04 = ~8 frame delay (heavy commitment)
+
+; 1 = throw cancel enabled, 0 = disabled (original behavior)
+!throw_cancel_enabled   = 1
+
+; Cooldown threshold for cancel window (see table above)
+!throw_cancel_cooldown  = $08
+
+; ============================================================
+; FastROM Configuration
+; ============================================================
+; The original ROM runs in SlowROM mode (CPU @ 2.68 MHz).
+; FastROM boosts ROM access speed to 3.58 MHz (~33% faster).
+; This significantly reduces slowdown in enemy-heavy scenes.
+
+; 1 = enable FastROM (recommended), 0 = original SlowROM speed
+!fastrom_enabled        = 1
+
+; ============================================================
+; Title Screen Configuration
+; ============================================================
+; Adds "ENHANCED" text below the logo on the title screen
+; using a BG3 overlay with custom 2bpp font tiles.
+
+; 1 = show "ENHANCED" on title screen, 0 = original title screen
+!title_text_enabled     = 1

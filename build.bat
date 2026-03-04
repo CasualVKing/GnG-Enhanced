@@ -24,7 +24,7 @@ if not exist "tools\asar.exe" (
 
 :: Copy clean ROM to working copy
 echo.
-echo [1/2] Copying clean ROM...
+echo [1/5] Copying clean ROM...
 copy /Y "rom\clean.sfc" "rom\gng_enhanced.sfc" >nul
 if errorlevel 1 (
     echo ERROR: Failed to copy ROM.
@@ -32,12 +32,42 @@ if errorlevel 1 (
     exit /b 1
 )
 
-:: Apply patch
-echo [2/2] Applying air control patch...
+:: Apply patches
+echo [2/5] Applying air control patch...
 tools\asar.exe patches\air_control.asm rom\gng_enhanced.sfc
 if errorlevel 1 (
     echo.
-    echo *** PATCH FAILED ***
+    echo *** PATCH FAILED (air_control) ***
+    echo Check the error messages above.
+    pause
+    exit /b 1
+)
+
+echo [3/5] Applying throw cancel patch...
+tools\asar.exe patches\throw_cancel.asm rom\gng_enhanced.sfc
+if errorlevel 1 (
+    echo.
+    echo *** PATCH FAILED (throw_cancel) ***
+    echo Check the error messages above.
+    pause
+    exit /b 1
+)
+
+echo [4/5] Applying title text patch...
+tools\asar.exe patches\title_text.asm rom\gng_enhanced.sfc
+if errorlevel 1 (
+    echo.
+    echo *** PATCH FAILED (title_text) ***
+    echo Check the error messages above.
+    pause
+    exit /b 1
+)
+
+echo [5/5] Applying FastROM patch...
+tools\asar.exe patches\fastrom.asm rom\gng_enhanced.sfc
+if errorlevel 1 (
+    echo.
+    echo *** PATCH FAILED (fastrom) ***
     echo Check the error messages above.
     pause
     exit /b 1

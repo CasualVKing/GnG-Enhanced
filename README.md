@@ -1,15 +1,15 @@
 # GnG Enhanced
 
-Air control patch for **Super Ghouls 'n Ghosts** (SNES).
-
-Arthur's jumps in the original game use fixed trajectories — once you commit to a jump, you can't change direction. This patch adds Mario-style air control, letting you steer Arthur left and right while airborne.
+Quality-of-life patches for **Super Ghouls 'n Ghosts** (SNES).
 
 ## Features
 
-- Full horizontal air control during jumps and double jumps
-- Configurable acceleration, max speed, and friction
-- Air turnaround boost for responsive direction changes
-- All other mechanics unchanged (shooting, magic, armor, enemies, collision)
+- **Air Control** — Mario-style horizontal movement during jumps and double jumps. Configurable acceleration, max speed, and friction.
+- **Throw Cancel** — Cancel the throw animation with a jump after a short delay, reducing commitment to attacks.
+- **FastROM** — Converts the ROM from SlowROM to FastROM, boosting CPU clock from 2.68 MHz to 3.58 MHz (~33% faster). Significantly reduces slowdown in busy scenes.
+- **Title Screen Text** — Displays "ENHANCED" below the logo on the title screen.
+
+All features are individually toggleable in `config.asm`.
 
 ## Setup
 
@@ -21,9 +21,11 @@ Arthur's jumps in the original game use fixed trajectories — once you commit t
    ```
 4. The patched ROM is output to `rom/gng_enhanced.sfc` — open it in your emulator
 
-## Tuning
+## Configuration
 
-All physics parameters are in `config.asm`:
+All parameters are in `config.asm`. Edit values, re-run `build.bat`, and test.
+
+### Air Control
 
 | Parameter | Default | Description |
 |-----------|---------|-------------|
@@ -31,9 +33,21 @@ All physics parameters are in `config.asm`:
 | `air_decel` | `$0018` | Friction when no direction held |
 | `air_max_speed` | `$0160` | Max horizontal airborne speed |
 | `air_turn_boost` | `$0010` | Extra decel when pressing opposite direction |
-| `enable_friction` | `1` | Slow to stop when releasing d-pad (0 = maintain momentum) |
+| `enable_friction` | `1` | Slow to stop when releasing d-pad (0 = ice physics) |
 
-Edit the values, re-run `build.bat`, and test. The cycle takes seconds.
+### Throw Cancel
+
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `throw_cancel_enabled` | `1` | Enable/disable throw cancel |
+| `throw_cancel_cooldown` | `$08` | Cooldown threshold — lower = more delay before cancel allowed |
+
+### Feature Toggles
+
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `fastrom_enabled` | `1` | Enable FastROM speed boost |
+| `title_text_enabled` | `1` | Show "ENHANCED" on title screen |
 
 ## Legal
 
