@@ -1,6 +1,6 @@
 # Super Ghouls 'n Ghosts Enhanced
 
-Quality-of-life patches for **Super Ghouls 'n Ghosts** (SNES).
+Quality-of-life patches for **Super Ghouls 'n Ghosts** (SNES). Now with Discord notifications!
 
 ## Features
 
