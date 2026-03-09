@@ -1,6 +1,6 @@
 # Super Ghouls 'n Ghosts Enhanced
 
-Quality-of-life patches for **Super Ghouls 'n Ghosts** (SNES). Now with Discord notifications!
+Quality-of-life patches for **Super Ghouls 'n Ghosts** (SNES).
 
 ## Features
 
@@ -10,6 +10,12 @@ Quality-of-life patches for **Super Ghouls 'n Ghosts** (SNES). Now with Discord 
 - **Title Screen Text** — Displays "ENHANCED" below the logo on the title screen.
 
 All features are individually toggleable in `config.asm`.
+
+## Screenshots
+
+| Title Screen | Air Control | Throw Cancel |
+|:---:|:---:|:---:|
+| ![Title Screen](assets/TitleScreen.png) | ![Air Control](assets/ActionShot.png) | ![Throw Cancel](assets/CancelShot.png) |
 
 ## Setup
 
